@@ -41,13 +41,10 @@ class ProcessTesting(object):
         return self.messages[-1]
 
     def run_test(self):
-        self.p = mp.Process(target=self.run)
+        self.p = mp.Process(target=self.function)
         self.p.start()
         for a in self.test_cases:
             a.apply(self)
         self.p.join()
 
-    def run(self):
-        args = ["venv/bin/python", self.process_name] + self.args
-        subprocess.call(args, env=self.env)
 

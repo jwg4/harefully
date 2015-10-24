@@ -1,7 +1,9 @@
 from harefully import CallResponseTestCase, ProcessTesting
 
+import keepalive
+
 class KeepAliveTesting(ProcessTesting):
-    process_name = "keepalive.py"
+    function = keepalive.main
     args = []
     env = {}
 

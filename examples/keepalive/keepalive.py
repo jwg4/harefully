@@ -21,7 +21,7 @@ def respond(channel, _1, _2, _3, message):
         body=json.dumps(payload)
     )
 
-if __name__ == '__main__':
+def main(*args, **kwargs):
     connection = pika.BlockingConnection(
         pika.ConnectionParameters('localhost')
     )
@@ -34,3 +34,7 @@ if __name__ == '__main__':
         no_ack=True
     )                  
     channel.start_consuming()
+
+if __name__ == '__main__':
+    main()
+
