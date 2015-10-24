@@ -1,4 +1,4 @@
-from harey import CallResponseTestCase, ProcessTesting
+from harefully import CallResponseTestCase, ProcessTesting
 
 class KeepAliveTesting(ProcessTesting):
     process_name = "keepalive.py"
