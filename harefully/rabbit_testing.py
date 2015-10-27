@@ -38,8 +38,10 @@ class ProcessTesting(object):
     def receive_message(self):
         _, _, body = self.channel.basic_get(queue='keepalive')
         self.messages.append(body)
-        
         return self.messages[-1]
+
+    def send_kill_message(self):
+        pass
 
     def run_test(self):
         self.p = mp.Process(target=self.function)
@@ -47,6 +49,9 @@ class ProcessTesting(object):
         self.p.start()
         for a in self.test_cases:
             a.apply(self)
-        self.p.join()
-
+        self.send_kill_message()
+        self.p.join(10)
+        if self.p.is_alive():
+            logging.error("The test process did not shutdown on kill message.")
+            self.p.terminate()
 
