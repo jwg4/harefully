@@ -1,3 +1,4 @@
+import logging
 import multiprocessing as mp
 import subprocess
 
@@ -42,6 +43,7 @@ class ProcessTesting(object):
 
     def run_test(self):
         self.p = mp.Process(target=self.function)
+        logging.debug("Starting the listener process.")
         self.p.start()
         for a in self.test_cases:
             a.apply(self)

@@ -1,3 +1,5 @@
+import logging
+
 from harefully import CallResponseTestCase, ProcessTesting
 
 import keepalive
@@ -19,5 +21,6 @@ KEEPALIVE_TEST = KeepAliveTesting(
 )
     
 if __name__ == '__main__':
+    logging.basicConfig(level=logging.DEBUG)
     KEEPALIVE_TEST.run_test()
 
