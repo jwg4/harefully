@@ -14,7 +14,10 @@ class TestUnittest(unittest.TestCase):
 
     def test_creates_a_test_function(self):
         """ Check that we get at least one function whose name starts with 'test_' in the decorated class."""
-        a = object
+        class a(object):
+            pass
+        setattr(a, 'tests', [1])
+
         tc = test_case(a)
         methods = inspect.getmembers(tc, predicate=inspect.ismethod)
         test_methods = [ m for m in methods if m[0].startswith('test_') ]
