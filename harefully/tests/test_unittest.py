@@ -18,5 +18,5 @@ class TestUnittest(unittest.TestCase):
         tc = test_case(a)
         methods = inspect.getmembers(tc, predicate=inspect.ismethod)
         test_methods = [ m for m in methods if m[0].startswith('test_') ]
-        self.assertTrue(len(test_methods) > 0)
+        self.assertTrue(len(test_methods) > 0, sorted([ m[0] for m in methods ]) )
 
