@@ -24,3 +24,8 @@ class TestUnittest(unittest.TestCase):
         methods = inspect.getmembers(tc, predicate=inspect.ismethod)
         test_methods = [ m for m in methods if m[0].startswith('test_') ]
         self.assertTrue(len(test_methods) > 0, sorted([ m[0] for m in methods ]) )
+
+    def test_raises_if_no_tests_attribute(self):
+        """ Check that we get an exception if we try to decorate a class with no 'tests'."""
+        self.assertRaises(Exception, lambda : test_case(self.cl_type))
+
