@@ -1,5 +1,7 @@
 import logging
+import unittest
 
+import harefully
 from harefully import CallResponseTestCase, ProcessTesting
 
 import keepalive
@@ -20,8 +22,8 @@ KEEPALIVE_TEST = KeepAliveTesting(
     ]
 )
     
-@harefully.test_case(KEEPALIVE_TEST):
-class KeepAliveTestCase(object):
+@harefully.test_case
+class KeepAliveTestCase(unittest.TestCase):
     function = keepalive.main
     tests = [test]
 
