@@ -8,4 +8,8 @@ def test_case(c):
         (c, unittest.TestCase), 
         {}
     )
+    def test_fn(s):
+        return None
+    for test in c.tests:
+        setattr(c, 'test_asdf', test_fn)
     return c
