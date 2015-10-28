@@ -20,6 +20,11 @@ KEEPALIVE_TEST = KeepAliveTesting(
     ]
 )
     
+@harefully.test_case(KEEPALIVE_TEST):
+class KeepAliveTestCase(object):
+    function = keepalive.main
+    tests = [test]
+
 if __name__ == '__main__':
     logging.basicConfig(level=logging.DEBUG)
     KEEPALIVE_TEST.run_test()
