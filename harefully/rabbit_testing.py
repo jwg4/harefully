@@ -47,6 +47,7 @@ class ProcessTesting(object):
         self.p = mp.Process(target=self.function)
         logging.debug("Starting the listener process.")
         self.p.start()
+        logging.debug("Started the listener process, pid: %d." % self.p.pid)
         for a in self.test_cases:
             a.apply(self)
         self.send_kill_message()
