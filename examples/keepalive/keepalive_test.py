@@ -14,9 +14,14 @@ test = CallResponseTestCase(
     '{"ack": 1, "token": "abcdef"}'
 )
 
+shutdown_Test = ShutdownTestCase(
+    '{"shutdown": 1}'
+)
+
 KEEPALIVE_TEST = KeepAliveTesting(
     [
-        test
+        test,
+        shutdown_test
     ]
 )
     
