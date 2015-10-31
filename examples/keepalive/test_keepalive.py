@@ -2,7 +2,7 @@ import logging
 import unittest
 
 import harefully
-from harefully import CallResponseTestCase, ProcessTesting
+from harefully import CallResponseTestCase, ProcessTesting, ShutdownTestCase
 
 import keepalive
 
@@ -23,11 +23,15 @@ shutdown_Test = ShutdownTestCase(
 KEEPALIVE_TEST = KeepAliveTesting(
     [
         test,
-        shutdown_test
+        shutdown_Test
     ]
 )
     
-if __name__ == '__main__':
-    logging.basicConfig(level=logging.DEBUG)
-    KEEPALIVE_TEST.run_test()
+@harefully.test_case
+class KeepAliveTestCase(unittest.TestCase):
+    function = keepalive.main
+    tests = [test, shutdown_Test]
+
+    def test_woop(self):
+        self.assertTrue(False)
 
