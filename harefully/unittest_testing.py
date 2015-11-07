@@ -1,6 +1,6 @@
 import unittest
 
-def test_case(c):
+def build_case(c):
     if issubclass(unittest.TestCase, c):
         return unittest.TestCase
     c = type(
