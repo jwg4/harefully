@@ -9,6 +9,7 @@ setup(
     author_email='jack.grahl@yahoo.co.uk',
     license='GNU GPL version 2.0',
     packages=['harefully'],
+    install_requires=['pika'],
     test_suite='nose.collector',
     tests_require=['nose']
 )
