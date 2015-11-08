@@ -1,3 +1,3 @@
 from rabbit_testing import CallResponseTestCase, ProcessTesting
 
-from unittest_testing import build_case
+from unittest_testing import make_test_case

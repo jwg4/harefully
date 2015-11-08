@@ -1,6 +1,9 @@
 import unittest
 
-def build_case(c):
+from nose.tools import nottest
+
+@nottest
+def make_test_case(c):
     if issubclass(unittest.TestCase, c):
         return unittest.TestCase
     c = type(

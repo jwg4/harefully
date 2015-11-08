@@ -2,7 +2,7 @@ import unittest
 
 import inspect
 
-from harefully import build_case
+from harefully import make_test_case
 
 class TestUnittest(unittest.TestCase):
     """ Tests the function which makes a unittest test case from a class."""
@@ -14,18 +14,18 @@ class TestUnittest(unittest.TestCase):
     def test_creates_a_subclass_of_unittest__TestCase(self):
         """ Check that the decorated class is a subclass of unittest.TestCase._"""
         setattr(self.cl_type, 'tests', [1])
-        tc = build_case(self.cl_type)
+        tc = make_test_case(self.cl_type)
         self.assertTrue(issubclass(tc, unittest.TestCase))
 
     def test_creates_a_test_function(self):
         """ Check that we get at least one function whose name starts with 'test_' in the decorated class."""
         setattr(self.cl_type, 'tests', [1])
-        tc = build_case(self.cl_type)
+        tc = make_test_case(self.cl_type)
         methods = inspect.getmembers(tc, predicate=inspect.ismethod)
         test_methods = [ m for m in methods if m[0].startswith('test_') ]
         self.assertTrue(len(test_methods) > 0, sorted([ m[0] for m in methods ]) )
 
     def test_raises_if_no_tests_attribute(self):
         """ Check that we get an exception if we try to decorate a class with no 'tests'."""
-        self.assertRaises(Exception, lambda : build_case(self.cl_type))
+        self.assertRaises(Exception, lambda : make_test_case(self.cl_type))
 
