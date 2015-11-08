@@ -2,5 +2,7 @@ language: python
 python:
     - "2.7"
 install: "python setup.py install"
-script: python examples/keepalive/keepalive_test.py
+script: 
+  - python setup.py test
+  - python examples/keepalive/keepalive_test.py
 
