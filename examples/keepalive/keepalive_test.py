@@ -1,6 +1,6 @@
 import logging
 
-from harefully import CallResponseTestCase, ProcessTesting
+from harefully import CallResponseTestCase, ProcessTesting, ShutdownTestCase
 
 import keepalive
 
