@@ -2,7 +2,7 @@ import logging
 import unittest
 
 import harefully
-from harefully import CallResponseTestCase, ProcessTesting
+from harefully import CallResponseTestCase, ProcessTesting, ShutdownTestCase
 
 import keepalive
 
