@@ -1,6 +1,10 @@
 language: python
 python:
     - "2.7"
-install: "python setup.py install"
-script: python examples/keepalive/keepalive_test.py
+install: 
+  - python setup.py install
+  - pip install -r examples/requirements.txt
+script: 
+  - python setup.py test
+  - python examples/keepalive/keepalive_test.py
 
