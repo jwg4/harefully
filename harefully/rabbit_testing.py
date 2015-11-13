@@ -16,6 +16,19 @@ class CallResponseTestCase(object):
             self.success = False
             return
 
+class ShutdownTestCase(object):
+    def __init__(self, shutdown_message):
+        self.shutdown_message = shutdown_message
+
+    def apply(self, testing_class):
+        testing_class.send_message(self.message)
+        time.sleep(self.waiting_time)
+        if not testing_class.is_up:
+            self.success = False
+        else:
+            self.success = True
+            testing_class.restart()
+
 class ProcessTesting(object):
     messages = []
 

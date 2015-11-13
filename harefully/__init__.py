@@ -1,2 +1,2 @@
-from rabbit_testing import CallResponseTestCase, ProcessTesting
+from rabbit_testing import CallResponseTestCase, ProcessTesting, ShutdownTestCase
 
