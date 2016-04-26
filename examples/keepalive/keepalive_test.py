@@ -14,7 +14,7 @@ test = CallResponseTestCase(
     '{"ack": 1, "token": "abcdef"}'
 )
 
-shutdown_Test = ShutdownTestCase(
+shutdown_test = ShutdownTestCase(
     '{"shutdown": 1}'
 )
 
